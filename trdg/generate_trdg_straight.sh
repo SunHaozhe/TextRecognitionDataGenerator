@@ -37,17 +37,11 @@ echo "Slurm job ID: $SLURM_JOB_ID"
 echo "CUDA_VISIBLE_DEVICES is $CUDA_VISIBLE_DEVICES" 
 
 
+for digit in "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+do
+    srun python run.py --extension png --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/${digit} --dict dicts/ascii_digits_${digit}.txt
+done
 
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/0 --dict dicts/ascii_digits_0.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/1 --dict dicts/ascii_digits_1.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/2 --dict dicts/ascii_digits_2.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/3 --dict dicts/ascii_digits_3.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/4 --dict dicts/ascii_digits_4.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/5 --dict dicts/ascii_digits_5.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/6 --dict dicts/ascii_digits_6.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/7 --dict dicts/ascii_digits_7.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/8 --dict dicts/ascii_digits_8.txt
-srun python run.py --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/9 --dict dicts/ascii_digits_9.txt
 
 DURATION=$SECONDS
 
