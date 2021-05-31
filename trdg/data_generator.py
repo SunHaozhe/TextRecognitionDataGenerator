@@ -1,7 +1,7 @@
 import os
 import random as rnd
 
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageOps
 
 from trdg import computer_text_generator, background_generator, distorsion_generator
 
@@ -240,6 +240,9 @@ class FakeTextDataGenerator(object):
             print("{} is not a valid name format. Using default.".format(name_format))
             image_name = "{}_{}.{}".format(text, str(index), extension)
             mask_name = "{}_{}_mask.png".format(text, str(index))
+
+        final_image = ImageOps.invert(final_image)
+        final_image = final_image.resize((28, 28), Image.LANCZOS)
 
         # Save the image
         if out_dir is not None:
