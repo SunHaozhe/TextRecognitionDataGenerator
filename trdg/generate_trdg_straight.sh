@@ -39,7 +39,7 @@ echo "CUDA_VISIBLE_DEVICES is $CUDA_VISIBLE_DEVICES"
 
 for digit in "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
 do
-    srun python run.py --extension png --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/${digit} --dict dicts/ascii_digits_${digit}.txt
+    python run.py --extension png --image_mode L --background 1 --thread_count 4 -c 6000 --output_dir trdg_datasets/trdg_straight/${digit} --dict dicts/ascii_digits_${digit}.txt
 done
 
 
